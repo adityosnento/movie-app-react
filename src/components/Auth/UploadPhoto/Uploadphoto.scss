@@ -1,0 +1,78 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba($color:black, $alpha: 0.3);
+    position: fixed;
+    z-index: 1;
+    
+    h1 {
+        font-weight: 600;
+        color: white;
+        text-align: center;
+        margin-left: 0px;;
+    }
+    
+
+}
+
+.form-wrapper {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: rgba($color:black, $alpha: 0.8);
+}
+
+
+
+.createAccount {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    p {
+        line-height: 18px;
+    }
+
+    small {
+        color: #999;
+        font-weight: lighter;
+    }
+
+    button:hover{
+        color: red;
+        background-color: #fff;
+        border: 2px solid red;
+    }
+    
+    button {
+        background-color: red;
+        color: #fff;
+        border: 2px solid #fff;
+        width: 100%;
+        margin-top: 1em;
+        padding: 8px 0px;
+        font-size: 1em;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        margin-bottom: 0.25em;
+        border-radius: 4px;
+        padding: 12px;
+        cursor: pointer;
+    }
+
+    .button-signup {
+        color: white;
+    }
+
+    .iconawesome {
+        margin-left: 10px;
+    }
+    
+}

@@ -1,0 +1,83 @@
+.container {
+    background-color: black;
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+    height: 45vh;
+    display: flex;
+    
+    .footer-logo {
+        width: 33%;
+        padding-left: 50px;
+        
+        img {
+            padding-top: 30px;
+            width: 120px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        p {
+            line-height: 25px;
+            margin-top: 0px;
+        }
+
+        .footer-p {
+            border-top: 2px solid white;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+    }
+
+    .service {
+        width: 25%;
+        padding-left: 100px;
+
+        ul {
+            padding-top: 30px;
+            
+            li {
+                list-style: none;
+                line-height: 25px;
+                padding-top: 10px;
+                
+            }
+        }
+    }
+
+    .download {
+        padding-top: 30px;
+        
+        img {
+            width: 120px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .apple-store {
+            margin-left: 10px;
+        }
+
+       
+    }
+
+    .social-media {
+        padding-top: 5px;
+        
+        img {
+            width: 30px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .instagram {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+    
+    }
+
+}
+
+

@@ -1,0 +1,111 @@
+.review-container {
+    box-sizing: border-box;
+    width: 70%;
+    display: block;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-top: 1px solid #d7d7d7;
+
+    .menu {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: baseline;
+    
+        .auto {
+            display: inline-block;
+            margin-right: 50px;
+            font-weight: 600;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            line-height: 1.4em;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+            li {
+                display: inline-block;
+                margin-right: 24px;
+                padding-bottom: 5px;
+                font-size: 1.1em;
+                line-height: 1em;
+                box-sizing: border-box;
+                border-color: #1e272c;
+             
+                &:active {
+                    border-color: #1e272c;
+                    border-bottom: 4px solid #00d573;
+                }
+            }
+
+
+        }
+    }
+
+    .comment_container {
+        padding: 20px;
+        border: 1px solid #e3e3e3;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+
+        .grouped {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            
+            .iconawesome {
+                color: yellow;
+            }
+
+            .avatar {
+                width: 64px;
+                margin-right: 20px;
+
+                img {
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+
+            .info {
+                width: 614px;
+
+                .rating-wrapper {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: baseline;
+                    justify-content: flex-start;
+                }
+            }
+        }
+
+        .comment-review {
+            padding-top: 10px;
+            padding-left: 84px;
+            width: 698px;
+            box-sizing: border-box;
+        }
+    }
+
+    .comment {
+        width: 40%;
+        height: 100px;
+        padding: 10px;
+        background-color: white;
+        font: 1.4em/1.6em cursive;
+        color: #095484;
+        padding-left: 20px;
+
+
+
+    }
+
+}

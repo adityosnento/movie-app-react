@@ -2,24 +2,43 @@ import React, { useState, useEffect, useSelector } from "react";
 import "../Categorydetail/filterdetail.scss";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import Synopsis from "../DetailPage/Overview/Overview";
+// import Synopsis from "../DetailPage/Overview/Overview";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cast from "../DetailPage/Cast/Moviedesc";
 import Review from "../DetailPage/Review/Review";
-import { movieDetail } from "../../store/actions/movie_data";
+import { movieDetail, getAllGenre, getGenre } from "../../store/actions/movie_data";
 
-const Filterdetail = ({ movieDetail, movies }) => {
+const Filterdetail = ({ movieDetail, movies, genres }) => {
   const [detail, setDetail] = useState(1);
   const { id } = useParams();
 
   useEffect(() => {
     movieDetail(id);
+    getAllGenre();
   }, [movieDetail]);
+
+  const listGenre =
+    genres &&
+    genres.map(genre => (
+      <button
+        key={genre._id}
+        className={genre === (genre.genre) ? "btn_listgenre" : ""}
+        onClick={() => getGenre(genre.genre)}
+      >
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compact-disc" class="svg-inline--fa fa-compact-disc fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zM88 256H56c0-105.9 86.1-192 192-192v32c-88.2 0-160 71.8-160 160zm160 96c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96zm0-128c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"></path></svg>
+        {genre.genre}
+      </button>
+    ));
 
   if (!movies) return <div className="no-load">loading..</div>;
 
   return (
-    <div>
+    <div className="container__detailfilm">
+      <div className="list-genre">
+        <h2>Genres</h2>
+        {listGenre}
+      </div>
+      <div className="detail__fullycontainer">
       <div className="Mainphoto">
       <div className="cover-atas">
           <img src={movies.poster}
@@ -31,69 +50,43 @@ const Filterdetail = ({ movieDetail, movies }) => {
           <FontAwesomeIcon className="iconawesome" icon="star" />
           <FontAwesomeIcon className="iconawesome" icon="star" />
           <FontAwesomeIcon className="iconawesome" icon="star" />
-          <p id="title-synopsis">The Synopsis</p>
+          <p id="title-synopsis">
+          <img src={require("../../assets/information.svg")} alt="logo" />
+            The Synopsis</p>
           <p>
           {movies.synopsis}
           </p>
-          <p id="title-synopsis">The Synopsis</p>
-          <p>
-         
-          </p>
+
+          
+  
+          <div className="movie-info">
+            <ul className="bold">
+              <li >
+              <img src={require("../../assets/video.svg")} alt="logo" />
+                Release date:</li>
+              <li>
+              <img src={require("../../assets/director.svg")} alt="logo" />
+                Director :</li>
+              <li>
+              <img src={require("../../assets/editor.svg")} alt="logo" />
+                Writers:</li>
+            </ul>
+            <ul>
+              <li id="lists">{movies.year}</li>
+              <li id="lists">{movies && movies.directors && movies.directors[0].name}</li>
+              <li id="lists">{movies && movies.writers && movies.writers[0].name}</li>
+              <li id="lists">{movies && movies.casts && movies.casts.name}</li>
+            </ul>
+          </div>
           <div className="button-play">
             <button>Watch Trailer</button>
             <button>Add WatchList</button>
           </div>
         </div>
-        
       </div>
+      
+     
       <div className="detail-container">
-        <div id="Synopsis" className="overview-container">
-          <h3>Synopsis</h3>
-          <p>{movies.synopsis}</p>
-          <h3>Movie Info</h3>
-          <div className="movie-info">
-            <ul className="bold">
-              <li>Release date:</li>
-              <li>Director :</li>
-              <li>Rating:</li>
-              <li>Writers:</li>
-            </ul>
-            <ul>
-              <li>{movies.year}</li>
-              <li>{movies && movies.directors && movies.directors[0].name}</li>
-              <li>{movies.rating} of 10</li>
-              <li>{movies && movies.directors && movies.writers[0].name}</li>
-            </ul>
-          </div>
-        </div>
-        <div className="desc-container">
-          <div className="cast-title">
-            <h3 id="Cast">Series of Cast</h3>
-            <ol className="people">
-              <li className="card">
-                <img src={require("../../assets/people/7.jpg")} alt="logo" />
-                <p className="cast-name">James Taylor</p>
-                <p className="character">Obi-Wan Kenobi, </p>
-              </li>
-              <li className="card">
-                <img src={require("../../assets/people/6.jpg")} alt="logo" />
-                <p className="cast-name">James Taylor</p>
-                <p className="character">Obi-Wan Kenobi, </p>
-              </li>
-              <li className="card">
-                <img src={require("../../assets/people/5.jpg")} alt="logo" />
-                <p className="cast-name">James Taylor</p>
-                <p className="character">Obi-Wan Kenobi, </p>
-              </li>
-              <li className="card">
-                <img src={require("../../assets/people/4.jpg")} alt="logo" />
-                <p className="cast-name">James Taylor</p>
-                <p className="character">Obi-Wan Kenobi, </p>
-              </li>
-            </ol>
-          </div>
-        </div>
-
         <div className="review-container">
           <div className="menu">
             <h3 className="auto" id="Social">
@@ -154,14 +147,17 @@ const Filterdetail = ({ movieDetail, movies }) => {
           </div>
         </div>
       </div>
+      </div>
+    
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    movies: state.movieData.movies
+    movies: state.movieData.movies,
+    genres: state.movieData.genres
   };
 };
 
-export default connect(mapStateToProps, { movieDetail })(Filterdetail);
+export default connect(mapStateToProps, { movieDetail, getAllGenre, getGenre })(Filterdetail);

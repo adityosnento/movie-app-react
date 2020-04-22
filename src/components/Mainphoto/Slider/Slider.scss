@@ -1,19 +1,24 @@
-.container-photo {
-    width: 100%;
-    height: 100vh;
-    box-sizing: border-box;
-    margin-top: -1px;
-    text-align: center;
-    padding: 0px 150px;
+.container__slide {
+    width: 45%;
+    height: 15vh;
+
+    .slide__img {
+
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+    }
 }
 
-.slide-photo {
-    width: 100%;
-    height: 90vh;
-    object-fit: cover;
-    background-image: linear-gradient(red, yellow);
+.slick-slider {
+    position: relative;
+    display: block;
 }
 
-
-
-
+.slick-track {
+    opacity: 1;
+    transform: translate3d(-1518px, 0px, 0px);
+    width: 4554px;
+}

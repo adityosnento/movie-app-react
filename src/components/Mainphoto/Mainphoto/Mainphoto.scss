@@ -1,14 +1,14 @@
 .Mainphoto {
-    width: 100%;
+    width: 90%;
     object-fit: cover;
     opacity: 0.1 black;
     display: flex;
     height: 100vh;
-    padding: 0px 100px;
+    padding: 0px 80px;
 
     .container-desc {
         padding: 0px 50px;
-        width: 55%;
+        width: 80%;
         color: black;
 
         h2 {
@@ -34,7 +34,7 @@
             line-height: 30px;
 
             img {
-                width: 4%;
+                width: 3%;
                 margin-right: 10px;
             }
             
@@ -55,7 +55,7 @@
 
     .cover-atas {
         margin-top: 0px;
-        width: 30%;
+        width: 45%;
         text-align: center;
         display: inline-flex;
         justify-content: center;
@@ -86,26 +86,46 @@
         }
     }
 
-    button:hover {
-        color: red;
-        background-color: #fff;
-        border: 2px solid red;
-    }
+    
+    .button-play {
 
-    button {
-        background-color: red;
-        color: #fff;
-        border: 2px solid #fff;
-        width: 25%;
-        margin-top: 1em;
-        font-size: 0.8em;
-        font-weight: lighter;
-        letter-spacing: 1px;
-        margin-bottom: 0.25em;
-        border-radius: 40px;
-        padding: 20px;
-        cursor: pointer;
+        a:hover {
+            transform: translateY(-3px);
+    background-color: #263238;
+    color: #fafafa;
+    box-shadow: 0 1rem 5rem rgba(0,0,0,0.2);
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+    
+        a {
+            display: flex;
+            flex-direction: row-reverse;
+            -webkit-box-align: center;
+            align-items: center;
+            cursor: pointer;
+            line-height: 1;
+            font-weight: 500;
+            font-size: 0.9rem;
+            width: auto;
+            -webkit-box-flex: 0;
+            flex-grow: 0;
+            color: #263238;
+            background-color: transparent;
+            box-shadow: none;
+            text-decoration: none;
+            outline: none;
+            padding: 0.6rem 1.3rem;
+            border-radius: 5rem;
+            transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+            border: 2px solid #263238;
+            margin-right: 20px;
+        }
     }
+    
 
     .movie-info {
         display: flex;
@@ -130,7 +150,7 @@
             
             #lists {
                 list-style: none;
-                line-height: 38px;
+                line-height: 44px;
             }
         }
     }
